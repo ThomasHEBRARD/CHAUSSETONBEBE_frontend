@@ -1,4 +1,4 @@
-## Chaussetonbebe
+## CHAUSSETONBEBE - FRONTEND
 
 In the project directory, you can run:
 
