@@ -5,7 +5,7 @@ const App = () => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/business/");
+      const res = await fetch("http://127.0.0.1:8000/product/");
       const testFetch = await res.json();
       setData(testFetch);
     } catch (e) {
@@ -19,9 +19,11 @@ const App = () => {
 
   return (
     <>
-      {data?.results?.map((item: { title: any; name: any }) => (
-        <div key={item.name}>{item.name}</div>
-      ))}
+      {data?.results?.map(
+        (item: { code: string; name: string; is_linked: boolean }) => (
+          <div key={item.name}>{item.is_linked && item.name}</div>
+        )
+      )}
     </>
   );
 };
