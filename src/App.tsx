@@ -5,7 +5,7 @@ const App = () => {
 
   const fetchData = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/homepage/");
+      const res = await fetch("http://127.0.0.1:8000/business/");
       const testFetch = await res.json();
       setData(testFetch);
     } catch (e) {
