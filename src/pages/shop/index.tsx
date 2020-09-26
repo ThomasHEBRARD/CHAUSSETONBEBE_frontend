@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 
 const ShoppingList = () => {
   const [data, setData] = useState<any>();
 
   const fetchData = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/product/");
-      const testFetch = await res.json();
-      setData(testFetch);
+      const result = await axios.get("http://127.0.0.1:8000/product/");
+      setData(result.data);
     } catch (e) {
       console.log(e);
     }
