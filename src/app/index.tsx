@@ -1,33 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { lazy, Suspense } from "react";
+import { hot } from "react-hot-loader/root";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+const Shop = lazy(() => import("../pages/shop"));
+const Menu = lazy(() => import("../app/Menu"));
 
 const App = () => {
-  const [data, setData] = useState<any>();
-
-  const fetchData = async () => {
-    try {
-      const res = await fetch("http://127.0.0.1:8000/product/");
-      const testFetch = await res.json();
-      setData(testFetch);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   return (
-    <>
-      <form action="http://127.0.0.1:8000/admin">
-        <input type="submit" value="Go to admin" />
-      </form>
-      {data?.results?.map(
-        (item: { code: string; name: string; is_linked: boolean }) => (
-          <div key={item.name}>{item.is_linked && item.name}</div>
-        )
-      )}
-    </>
+    <Router>
+      <Suspense fallback={<></>}>
+        <Route exact path="" render={() => <Menu />} />
+        <Route exact path="/shop" render={() => <Shop />} />
+      </Suspense>
+    </Router>
   );
 };
-export default App;
+export default hot(App);
