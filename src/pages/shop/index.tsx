@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-const App = () => {
+const ShoppingList = () => {
   const [data, setData] = useState<any>();
 
   const fetchData = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/homepage/");
+      const res = await fetch("http://127.0.0.1:8000/product/");
       const testFetch = await res.json();
       setData(testFetch);
     } catch (e) {
@@ -19,10 +19,14 @@ const App = () => {
 
   return (
     <>
-      {data?.results?.map((item: { title: any; name: any }) => (
-        <div key={item.name}>{item.name}</div>
-      ))}
+      <div>shopping list</div>
+      {data?.results?.map(
+        (item: { code: string; name: string; is_linked: boolean }) => (
+          <div key={item.name}>{item.is_linked && item.name}</div>
+        )
+      )}
     </>
   );
 };
-export default App;
+
+export default ShoppingList;
