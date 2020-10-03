@@ -57,8 +57,8 @@ const HomePage = () => {
     return (
         <StyledSelectionSection>
             <SelectionModule label={'Nos chaussons'} to={'/shop'} />
-            <SelectionModule label={'Nos gilets'} to={'/'} />
-            <SelectionModule label={'Nos ...'} to={'/'} />
+            <SelectionModule label={'Nos gilets'} to={'/shop'} />
+            <SelectionModule label={'Nos ...'} to={'/shop'} />
         </StyledSelectionSection>
     );
 };
