@@ -1,32 +1,63 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
+import shopClient from '../../services/api/shop_client';
+import { ProductProps } from '../../services/type/product';
+import styled from '@emotion/styled';
+
+const StyledProductName = styled.div``;
+const StyledProductPrice = styled.div``;
+const StyledProductDescription = styled.div``;
+const StyledProductContainer = styled.div`
+    display: inline-block;
+    text-align: center;
+    padding: 300px 10px 10px 10px;
+    border: solid 1px red;
+    border-radius: 5px;
+`;
+
+const ProductDisplay = (props: ProductProps) => {
+    const { name, price, image, description } = props;
+    return (
+        <StyledProductContainer>
+            {image && <img src={image} alt={description} width="100" height="100" />}
+            <StyledProductName>{name}</StyledProductName>
+            <StyledProductDescription>{description}</StyledProductDescription>
+            <StyledProductPrice>{price} €</StyledProductPrice>
+        </StyledProductContainer>
+    );
+};
+
+const StyledShoppingList = styled.div`
+    margin: 3%;
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-row-gap: 50px;
+    grid-column-gap: 5%;
+`;
 
 const ShoppingList = () => {
-  const [data, setData] = useState<any>();
+    const [data, setData] = useState<any>();
 
-  const fetchData = async () => {
-    try {
-      const res = await fetch("http://127.0.0.1:8000/product/");
-      const testFetch = await res.json();
-      setData(testFetch);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+    const fetchData = async () => {
+        setData(await shopClient.getProducts());
+    };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+    useEffect(() => {
+        fetchData();
+    }, []);
 
-  return (
-    <>
-      <div>shopping list</div>
-      {data?.results?.map(
-        (item: { code: string; name: string; is_linked: boolean }) => (
-          <div key={item.name}>{item.is_linked && item.name}</div>
-        )
-      )}
-    </>
-  );
+    return (
+        <StyledShoppingList>
+            {data?.results?.map((product: ProductProps) => (
+                <ProductDisplay
+                    key={product.code}
+                    name={product.name}
+                    price={product.price}
+                    image={product.image}
+                    description={product.description}
+                />
+            ))}
+        </StyledShoppingList>
+    );
 };
 
 export default ShoppingList;
