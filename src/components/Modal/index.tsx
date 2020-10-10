@@ -1,7 +1,7 @@
-import React, { createRef, useEffect } from "react";
-import styled from "@emotion/styled";
-import { createPortal } from "react-dom";
-import usePortal from "../../helpers/userPortal";
+import React, { createRef, useEffect } from 'react';
+import styled from '@emotion/styled';
+import { createPortal } from 'react-dom';
+import usePortal from '../../helpers/userPortal';
 
 interface AppModalProps {
     isOpen: boolean;
@@ -39,7 +39,7 @@ const Modal = (props: AppModalProps) => {
     const target = usePortal('modal');
     const popupRef = createRef<HTMLDivElement>();
 
-    const handleKeyDown: React.KeyboardEventHandler = e => {
+    const handleKeyDown: React.KeyboardEventHandler = (e) => {
         if (e.key === 'Escape' || (closeOnSpace && e.key === ' ')) {
             e.stopPropagation();
             closeModal();
@@ -65,4 +65,4 @@ const Modal = (props: AppModalProps) => {
     );
 };
 
-export default Modal
+export default Modal;

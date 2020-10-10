@@ -9,14 +9,16 @@ const Footer = lazy(() => import('../app/Footer'));
 
 const App = () => {
     return (
-        <Router>
-            <Suspense fallback={<></>}>
-                <Route path="" render={() => <Menu />} />
-                <Route exact path="/homepage" render={() => <HomePage />} />
-                <Route exact path="/shop" render={() => <Shop />} />
-                <Route path="" render={() => <Footer />} />
-            </Suspense>
-        </Router>
+        <div style={{ backgroundColor: '#fffaf5', margin: '-10px', padding: '10px' }}>
+            <Router>
+                <Suspense fallback={<></>}>
+                    <Route path="" render={() => <Menu />} />
+                    <Route exact path="/homepage" render={() => <HomePage />} />
+                    <Route exact path="/shop" render={() => <Shop />} />
+                    <Route path="" render={() => <Footer />} />
+                </Suspense>
+            </Router>
+        </div>
     );
 };
 export default hot(App);
