@@ -7,10 +7,11 @@ const StyledProductName = styled.div``;
 const StyledProductPrice = styled.div``;
 const StyledProductDescription = styled.div``;
 const StyledProductContainer = styled.div`
+    display: inline-block;
     text-align: center;
     padding: 300px 10px 10px 10px;
-    border: solid 1px grey;
-    border-radius: 3px;
+    border: solid 1px red;
+    border-radius: 5px;
 `;
 
 const ProductDisplay = (props: ProductProps) => {
@@ -28,7 +29,8 @@ const StyledShoppingList = styled.div`
     margin: 3%;
     display: grid;
     grid-template-columns: repeat(3, 30%);
-    grid-gap: 5%;
+    grid-row-gap: 50px;
+    grid-column-gap: 5%;
 `;
 
 const ShoppingList = () => {
