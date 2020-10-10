@@ -10,7 +10,12 @@ class ShoppingList extends ApiClient {
         };
     }
     public getProducts = async (): Promise<any> => {
+        const params = {
+            limit: 20,
+            offset: 0,
+        };
         const response = await axios.get(this.url('getProducts'), {
+            params,
             headers: getHeaders(),
         });
 
