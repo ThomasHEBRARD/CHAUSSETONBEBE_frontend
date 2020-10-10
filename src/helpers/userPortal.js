@@ -54,7 +54,7 @@ function usePortal(id, extraStyle = '') {
                 parentElem.remove();
             }
         };
-    }, []);
+    });
 
     /**
      * It's important we evaluate this lazily:
