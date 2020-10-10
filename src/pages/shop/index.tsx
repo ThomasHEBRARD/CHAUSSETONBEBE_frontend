@@ -15,9 +15,11 @@ const StyledProductContainer = styled.div`
 `;
 
 const ProductDisplay = (props: ProductProps) => {
-    const { name, price, description } = props;
+    const { name, price, image, description } = props;
+    console.log(image)
     return (
         <StyledProductContainer>
+            <img src={image} alt={"chausson"} width="100" height="100"/>
             <StyledProductName>{name}</StyledProductName>
             <StyledProductDescription>{description}</StyledProductDescription>
             <StyledProductPrice>{price} €</StyledProductPrice>
@@ -51,6 +53,7 @@ const ShoppingList = () => {
                     key={product.code}
                     name={product.name}
                     price={product.price}
+                    image={product.image}
                     description={product.description}
                 />
             ))}
