@@ -1,4 +1,4 @@
-export interface BaseType {
-  name: string;
-  code: string;
+export interface BaseProps {
+    name?: string;
+    code?: string;
 }

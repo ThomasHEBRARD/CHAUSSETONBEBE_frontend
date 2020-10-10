@@ -1,13 +1,14 @@
-import { BaseType } from "./common";
+import { BaseProps } from './common';
 
-export interface ProductGroup extends BaseType {}
+export interface ProductGroupProps extends BaseProps {}
 
-export interface Product extends BaseType {
-  stock?: number;
-  price: number;
-  overriden_price?: number;
-  shipping_price?: number;
-  is_linked?: boolean;
-  image?: any;
-  group: ProductGroup;
+export interface ProductProps extends BaseProps {
+    stock?: number;
+    price: number;
+    overriden_price?: number;
+    description?: string;
+    shipping_price?: number;
+    is_linked?: boolean;
+    image?: any;
+    group?: ProductGroupProps;
 }

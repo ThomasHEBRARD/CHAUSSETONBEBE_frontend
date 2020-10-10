@@ -1,6 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import shopClient from '../../services/api/shop_client';
-import { Product } from '../../services/type/product';
+import { ProductProps } from '../../services/type/product';
+import styled from '@emotion/styled';
+
+const StyledProductName = styled.div``;
+const StyledProductPrice = styled.div``;
+const StyledProductDescription = styled.div``;
+const StyledProductContainer = styled.div`
+    text-align: center;
+    padding: 300px 10px 10px 10px;
+    border: solid 1px grey;
+    border-radius: 3px;
+`;
+
+const ProductDisplay = (props: ProductProps) => {
+    const { name, price, description } = props;
+    return (
+        <StyledProductContainer>
+            <StyledProductName>{name}</StyledProductName>
+            <StyledProductDescription>{description}</StyledProductDescription>
+            <StyledProductPrice>{price} €</StyledProductPrice>
+        </StyledProductContainer>
+    );
+};
+
+const StyledShoppingList = styled.div`
+    margin: 3%;
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-gap: 5%;
+`;
 
 const ShoppingList = () => {
     const [data, setData] = useState<any>();
@@ -14,12 +43,16 @@ const ShoppingList = () => {
     }, []);
 
     return (
-        <>
-            <div>shopping list</div>
-            {data?.results?.map((product: Product) => (
-                <div key={product.name}>{product.is_linked && product.name}</div>
+        <StyledShoppingList>
+            {data?.results?.map((product: ProductProps) => (
+                <ProductDisplay
+                    key={product.code}
+                    name={product.name}
+                    price={product.price}
+                    description={product.description}
+                />
             ))}
-        </>
+        </StyledShoppingList>
     );
 };
 
