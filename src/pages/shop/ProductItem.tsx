@@ -8,6 +8,7 @@ const StyledProductPrice = styled.div``;
 const StyledProductDescription = styled.div``;
 const StyledProductContainer = styled.div<{ image: boolean }>`
     display: inline-block;
+    cursor: pointer;
     text-align: center;
     ${(props) =>
         props.image
@@ -29,12 +30,11 @@ const ProductItem = (props: ProductItemProps) => {
 
     return (
         <>
-            <StyledProductContainer image={!!image}>
+            <StyledProductContainer onClick={openProductModal} image={!!image}>
                 {image && <img src={image} alt={description} width="100%" height="300px" />}
                 <StyledProductName>{name}</StyledProductName>
                 <StyledProductDescription>{description}</StyledProductDescription>
                 <StyledProductPrice>{price} €</StyledProductPrice>
-                <button onClick={openProductModal}>Open Modal</button>
             </StyledProductContainer>
         </>
     );
