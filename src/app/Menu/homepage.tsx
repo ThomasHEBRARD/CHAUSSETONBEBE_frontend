@@ -7,7 +7,8 @@ const StyledSelection = styled.div`
     width: 30%;
     height: 350px;
     background-color: white;
-    border: solid 1px black;
+    border: solid 1px grey;
+    border-radius: 4px;
 `;
 
 const StyledSelectionSection = styled.div`

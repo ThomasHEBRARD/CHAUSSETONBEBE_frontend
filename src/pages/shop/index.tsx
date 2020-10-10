@@ -7,7 +7,7 @@ import ProductItem from './ProductItem';
 import ProductModal from './ProductModal';
 
 const StyledShoppingList = styled.div`
-    margin: 3%;
+    margin: 0 3% 0 3%;
     display: grid;
     grid-template-columns: repeat(3, 30%);
     grid-row-gap: 50px;

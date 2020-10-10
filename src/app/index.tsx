@@ -9,13 +9,20 @@ const Footer = lazy(() => import('../app/Footer'));
 
 const App = () => {
     return (
-        <div style={{ backgroundColor: '#fffaf5', margin: '-10px', padding: '10px' }}>
+        <div
+            style={{
+                backgroundColor: '#fffcf7',
+                margin: '-8px -8px 0 -8px',
+            }}
+        >
             <Router>
                 <Suspense fallback={<></>}>
                     <Route path="" render={() => <Menu />} />
-                    <Route exact path="/homepage" render={() => <HomePage />} />
-                    <Route exact path="/shop" render={() => <Shop />} />
-                    <Route path="" render={() => <Footer />} />
+                    <div style={{ paddingTop: '58px' }}>
+                        <Route exact path="/homepage" render={() => <HomePage />} />
+                        <Route exact path="/shop" render={() => <Shop />} />
+                        <Route path="" render={() => <Footer />} />
+                    </div>
                 </Suspense>
             </Router>
         </div>
