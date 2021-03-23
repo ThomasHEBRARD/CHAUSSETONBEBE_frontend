@@ -1,6 +1,7 @@
 {
   "name": "chaussetonbebe_frontend",
   "scripts": {
+    "local": "NODE_ENV=local webpack-dev-server --open --mode development --hot",
     "dev": "webpack --mode development ./src/index.js --output ./static/frontend/main.js",
     "build": "webpack --mode production ./src/index.js --output ./static/frontend/main.js",
     "start": "react-scripts start",
@@ -10,8 +11,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/babel-plugin": "^11.2.0",
     "@emotion/core": "^10.0.35",
-    "@emotion/styled": "^10.0.27",
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.1.5",
     "@sentry/browser": "^5.24.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -21,12 +24,24 @@
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
     "@types/react-router-dom": "^5.1.5",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^7.1.2",
+    "copy-webpack-plugin": "^6.2.1",
+    "dotenv-webpack": "^7.0.2",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.1",
+    "loader-utils": "^2.0.0",
     "moment": "^2.29.0",
     "react-hot-loader": "^4.13.0",
+    "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.3",
-    "typescript": "^3.7.5"
+    "react-scripts": "^4.0.3",
+    "sass-loader": "^10.1.1",
+    "typescript": "^3.7.5",
+    "web-vitals": "^1.1.1"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -58,9 +73,9 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.21.3",
     "eslint-plugin-react-hooks": "^4.1.2",
-    "react": "^16.13.1",
+    "react": "^16.14.0",
     "react-dom": "^16.13.1",
-    "webpack": "^4.43.0",
+    "webpack": "^5.27.2",
     "webpack-cli": "^3.3.12"
   },
   "keywords": [],

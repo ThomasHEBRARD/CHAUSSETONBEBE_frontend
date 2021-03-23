@@ -37,7 +37,7 @@ const Menu = () => {
     return (
         <>
             <StyledMenu>
-                <StyledButtonMenu to={'/homepage'}>Menu</StyledButtonMenu>
+                <StyledButtonMenu to={''}>Menu</StyledButtonMenu>
                 <StyledButtonMenu to={'/shop'}>Shop</StyledButtonMenu>
             </StyledMenu>
             <StyledSeparationBar />

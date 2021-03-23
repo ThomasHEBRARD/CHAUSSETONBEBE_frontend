@@ -19,7 +19,7 @@ const App = () => {
                 <Suspense fallback={<></>}>
                     <Route path="" render={() => <Menu />} />
                     <div style={{ paddingTop: '58px' }}>
-                        <Route exact path="/homepage" render={() => <HomePage />} />
+                        <Route exact path="/" render={() => <HomePage />} />
                         <Route exact path="/shop" render={() => <Shop />} />
                         <Route path="" render={() => <Footer />} />
                     </div>
